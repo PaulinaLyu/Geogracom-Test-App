@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { Context } from '../Context/Context';
+import React from 'react';
 import Table from 'react-bootstrap/Table';
 import styled from 'styled-components';
 import CollectionItem from './CollectionItem';
@@ -19,13 +18,7 @@ const CollectionInner = styled.div`
     transform: translate(-50%, -50%)
 `;
 
-export const Collection = () => {
-	const { collection: { collection, setCollection } } = useContext(Context);
-
-	const deleteCollectionItem = id => {
-		setCollection([...collection].filter((item) => item.id !== id));
-	}
-	
+export const Collection = ({ collection, deleteCollectionItem }) => {
 	return (
 		<CollectionStyled>
 			<CollectionInner>
@@ -39,6 +32,7 @@ export const Collection = () => {
     				</thead>
 					<tbody>
 						{collection.map(item => <CollectionItem 
+							id={item.get('id')}
 							key={item.get('id')} 
 							user={item.get('user')}
 							numbers={item.get('numbers')}
