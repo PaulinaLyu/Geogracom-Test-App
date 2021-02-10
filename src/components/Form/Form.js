@@ -1,8 +1,7 @@
-import React, { useContext } from 'react';
-import { Context } from '../Context/Context';
+import React from 'react';
 import styled from 'styled-components';
-import Button from '../common/Button';
-import FormControl from '../common/FormControl';
+import { reset } from "redux-form";
+import UserFormRedux from './UserFormRedux';
 import toCamelCase from '../../utils/toCamelCase';
 import toPhoneNumber from '../../utils/toPhoneNumber';
 
@@ -12,6 +11,7 @@ const FormStyled = styled.div`
 	position: relative;
 `;
 
+<<<<<<< HEAD
 const FormWrapper = styled.form`
 	margin: 0;
 	position: absolute;
@@ -51,13 +51,19 @@ export const Form = () => {
 		setNumbers(event.target.value);
 	}
 
+=======
+const Form = ({addCollection}) => {
+	const onSubmit = (formData, dispatch) => {
+		addCollection(toCamelCase(formData.user),toPhoneNumber(formData.numbers))
+		dispatch(reset("user"));
+	}
+>>>>>>> part-2
 	return (
         <FormStyled>
-			<FormWrapper>
-				<FormControl onChange={onChangeName} type='text' name='user' label='ФИО' placeholder='Введите имя' value={user}/>
-				<FormControl onChange={onChangeTel} type='tel' name='tnumbers' label='Телефон' placeholder='Введите телефон' value={numbers}/>
-				<Button onClickFunction={addCollection}/>
-			</FormWrapper>
+			<UserFormRedux onSubmit={onSubmit}/>
 		</FormStyled>
 	)
 };
+
+
+export default Form;

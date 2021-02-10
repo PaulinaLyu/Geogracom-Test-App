@@ -50,6 +50,16 @@ export const GlobalStyle = createGlobalStyle`
 		display: block;
 	}
 
+	input {
+		width: 200px;
+		padding: 7px;
+		margin-top: 5px;
+		border: 2px solid #E7E7E7;
+		border-radius: 5px;
+		font-size: 13px;
+		font-weight: normal;
+	}
+
 	.active {
 		background-color: #E7E7E7;
 	}

@@ -19,8 +19,8 @@ const ButtonStyled = styled.button`
     }
 `;
 
-const Button = ({ onClickFunction }) => (
-    <ButtonStyled onClick={onClickFunction}>Сохранить</ButtonStyled>
+const Button = () => (
+    <ButtonStyled>Сохранить</ButtonStyled>
 )
 
 export default Button;
