@@ -9,8 +9,4 @@ const CollectionItem = ({user, numbers, id, deleteCollectionItem }) => {
             </tr>
         )
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> part-2
 export default CollectionItem;

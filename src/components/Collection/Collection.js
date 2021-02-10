@@ -18,17 +18,7 @@ const CollectionInner = styled.div`
     transform: translate(-50%, -50%)
 `;
 
-<<<<<<< HEAD
-export const Collection = () => {
-	const { collection: { collection, setCollection } } = useContext(Context);
-
-	const deleteCollectionItem = id => {
-		setCollection([...collection].filter((item) => item.get('id') !== id));
-	}
-	
-=======
 export const Collection = ({ collection, deleteCollectionItem }) => {
->>>>>>> part-2
 	return (
 		<CollectionStyled>
 			<CollectionInner>
