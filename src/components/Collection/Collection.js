@@ -23,7 +23,7 @@ export const Collection = () => {
 	const { collection: { collection, setCollection } } = useContext(Context);
 
 	const deleteCollectionItem = id => {
-		setCollection([...collection].filter((item) => item.id !== id));
+		setCollection([...collection].filter((item) => item.get('id') !== id));
 	}
 	
 	return (
@@ -39,6 +39,7 @@ export const Collection = () => {
     				</thead>
 					<tbody>
 						{collection.map(item => <CollectionItem 
+							id={item.get('id')}
 							key={item.get('id')} 
 							user={item.get('user')}
 							numbers={item.get('numbers')}

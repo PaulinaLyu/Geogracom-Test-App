@@ -31,8 +31,8 @@ export const Form = () => {
 		event.preventDefault();
 		const entires = [
 			['id', Date.now()],
-			['user', user],
-			['numbers', numbers]
+			['user', toCamelCase(user)],
+			['numbers', toPhoneNumber(numbers)]
 		]
 		const collectionItem = new Map(entires)
 		setCollection([
@@ -44,11 +44,11 @@ export const Form = () => {
 	}
 
 	const onChangeName = event => {
-		setUser(toCamelCase(event.target.value));
+		setUser(event.target.value);
 	}
 
 	const onChangeTel = event => {
-		setNumbers(toPhoneNumber(event.target.value));
+		setNumbers(event.target.value);
 	}
 
 	return (
