@@ -4,11 +4,14 @@
 // подробнее - https://ru.wikipedia.org/wiki/CamelCase
 const toCamelCase = (user) => {
     if (!user) return user;
-    const formattedUser = user.replace(/_/g, ' ')
-        .replace(/-/g, ' ').split(' ')
-        .map(item => item[0].toUpperCase() + item.slice(1))
-        .join(' ')
-    return formattedUser
+    return user.replace(/(\_|-)\D/g, function(m) {
+        return m.toUpperCase().replace(/-/,' ').replace(/\_/,' ');
+    });
+    // const formattedUser = user.replace(/_/g, ' ')
+    //     .replace(/-/g, ' ').split(' ')
+    //     .map(item => item[0].toUpperCase() + item.slice(1))
+    //     .join(' ')
+    // return formattedUser
 }
 
 export default toCamelCase;
